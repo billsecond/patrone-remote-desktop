@@ -21,6 +21,27 @@ works the way Windows users expect:
   window, and then the account's own desktop, the same one, with the
   clipboard, sound and a screen that follows the window.
 
+## Installing
+
+- **PatroneOS** has it already.
+- **Ubuntu 26.04 and systems built on it:** from Patrone's apt
+  repository, which keeps it up to date
+  ([billsecond/patrone-apt](https://github.com/billsecond/patrone-apt),
+  "Patrone's apps on Ubuntu"), then `sudo apt install patrone-remote-desktop`. Or
+  download the `.deb` from the
+  [latest release](https://github.com/billsecond/patrone-remote-desktop/releases/latest)
+  and open it.
+  Installed on its own it changes nothing until Remote Desktop is turned on
+  (`sudo patrone-remote-desktop enable`, below): then each account's screen
+  and Remote Desktop show the same one desktop, from the login screen's next
+  start.
+
+Its history up to here is from PatroneOS's repository,
+[billsecond/patroneos](https://github.com/billsecond/patroneos), where it
+lived in its own folder; pull request numbers in those commits are that
+repository's, and so are paths below such as `docs/`, `desktop/`,
+`shell/gnome/` and `scripts/`.
+
 ## Turning on Remote Desktop
 
 **The desktops** (one desktop per account, which the screen, Remote Desktop
@@ -496,3 +517,12 @@ The plugin and helper are C because FreeRDP's plugin interface is a C struct
 of function pointers with fixed slots, which is awkward to match from Rust.
 
 Windows and Hyper-V are trademarks of the Microsoft group of companies.
+
+## Releases
+
+A tag `vVERSION`, where VERSION is `debian/changelog`'s, makes a GitHub
+release (`.github/workflows/release.yml`): the `.deb`, built in a clean
+Ubuntu 26.04 container, the source tarball (`git archive` of the tag) and
+`SHA256SUMS`. PatroneOS builds its own package from that tarball: its
+repository pins the release in `packaging/patrone-remote-desktop/release.txt`, and moving
+the pin on its `main` publishes it to Patrone's apt repository.

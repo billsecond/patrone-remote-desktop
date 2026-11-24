@@ -1,3 +1,11 @@
+patrone-remote-desktop (0.6.1) resolute; urgency=medium
+
+  * Built from its own repository, billsecond/patrone-remote-desktop,
+    where its releases are made; the package's Homepage and Vcs fields
+    point there. Nothing else changes.
+
+ -- William Daugherty <31995458+billsecond@users.noreply.github.com>  Tue, 24 Nov 2026 09:00:00 -0600
+
 patrone-remote-desktop (0.6.0) resolute; urgency=medium
 
   * The desktops (one per account, on the screen and remotely) are a switch
